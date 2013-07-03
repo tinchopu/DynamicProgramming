@@ -8,9 +8,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <algorithm>
 #include <vector>
+#include "utils.h"
 
 
 int itemAmount;
@@ -20,21 +20,6 @@ std::vector<int> weights;
 bool error =false;
 
 
-std::vector<std::string> tokenizeLine(std::string input){
-    
-    std::stringstream liness(input);
-    std::string segment;
-    
-    std::vector<std::string> segment_list;
-    while (getline(liness, segment,' ')) {
-        if(segment!=""){
-            segment_list.push_back(segment);
-        }
-    }
-    
-    return segment_list;
-    
-}
 
 void readInputFile(std::string pathToFile){
     
@@ -67,18 +52,18 @@ void readInputFile(std::string pathToFile){
                     weights.push_back(atoi(segment_list[1].c_str()));
                     values.push_back(atoi(segment_list[0].c_str()));
                 }
-                }
+            }
             
-    //        std::cout << line <<std::endl;
+            //        std::cout << line <<std::endl;
             lineNumber++;
-        
+            
             
         }
         
         myfile.close();
     }
     else{
-     std::cout << "Unable to open file"<<std::endl;
+        std::cout << "Unable to open file"<<std::endl;
         error=true;
     }
     
@@ -112,18 +97,18 @@ void processInputFile(){
     //Calculate Result (traceback)
     std::vector<int> taken(itemAmount);
     
-  /*
-    //print table contents
-    for (int i=0; i<=capacity; i++) {
-        
-        std::cout << i<<"| ";
-        
-        for (int j=0; j<=itemAmount; j++) {
-            std::cout << computeTable[j][i]<<' ';
-        }
-        std::cout << std::endl;
-    }
-    */
+    /*
+     //print table contents
+     for (int i=0; i<=capacity; i++) {
+     
+     std::cout << i<<"| ";
+     
+     for (int j=0; j<=itemAmount; j++) {
+     std::cout << computeTable[j][i]<<' ';
+     }
+     std::cout << std::endl;
+     }
+     */
     
     int capacityUsed=capacity;
     int currentItem = itemAmount-1;
@@ -146,7 +131,7 @@ void processInputFile(){
     }
     
     std::cout << std::endl;
-
+    
 }
 
 
