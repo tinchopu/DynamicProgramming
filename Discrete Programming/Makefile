@@ -1,2 +1,5 @@
+#Set the compiler
+CC=g++
+#
 all:
-	g++ main.cpp utils.cpp -o dp
+	$(CC) main.cpp utils.cpp -o dp
