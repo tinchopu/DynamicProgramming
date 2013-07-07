@@ -72,7 +72,7 @@ void readInputFile(std::string pathToFile){
 void processInputFile(){
     //do the calculation
     
-    std::vector<std::vector<int>> computeTable(itemAmount+1,std::vector<int>(capacity+1));
+    std::vector<std::vector<int> > computeTable(itemAmount+1,std::vector<int>(capacity+1));
     
     
     for (int i=0; i<=capacity; i++) {
